@@ -1,6 +1,5 @@
 # Ontop with Dremio
 
-
 In this tutorial we present step-by-step the way of connecting Dremio to Ontop. We show how to integrate *uni1* data saved in the PostgreSQL database and *uni2* data saved in plain JSON files into one Dremio data space. 
 
 Before you proceed, we recommend you to see the following tutorials provided by Dremio:
@@ -24,6 +23,7 @@ It will be our data space in which we integrate data from various sources.
 The *uni1* data is contained in a PostgreSQL database named *university-session1*. Either you can download the SQL script that generates the database from [here](data/postgres-docker/db/university-session1.sql) and load it to your local PostgreSQL server, or you can run the docker container that we provide by executing the following script:
 
 ```bash
+cd data/postgres-docker #ontop-tutorial/federation/dremio/data/postgres-docker
 IMAGENAME="university-db"
 docker ps -q --filter ancestor=$IMAGENAME | xargs docker stop
 docker build -t $IMAGENAME .
@@ -44,7 +44,7 @@ Select PostgreSQL:
 
 <img src="img/add-postgres.png" width="600"/>
 
-Enter the required JDBC information:
+Enter the required JDBC information (Password:postgres):
 
 <img src="img/postgres-info.png" width="600"/>
 
